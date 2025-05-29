@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 const initialData = { author: "", title: "", body: "", public: false };
 const apiUrl = "https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts";
 export default function App() {
@@ -12,6 +12,7 @@ export default function App() {
       setCardData({ author, title, body });
       console.log(res.data);
     });
+
     e.preventDefault();
   };
 
@@ -21,7 +22,13 @@ export default function App() {
 
     setFormData({ ...formData, [e.target.name]: value });
   };
-
+  // useEffect(() => {
+  //   axios.get(`${apiUrl}`).then((res) => {
+  //     const posts = res.data;
+  //     const Firstitem = posts.slice(0, 20);
+  //     setCardData(Firstitem);
+  //   });
+  // }, [cardData]);
   return (
     <>
       <form onSubmit={handleFormSubmit}>
@@ -79,6 +86,14 @@ export default function App() {
           </div>
         </div>
       )}
+      {/* {cardData.map((post) => (
+        <div>
+          <p>{post.author}</p>
+          <h3>{post.title}</h3>
+          <p>{post.body}</p>
+          <p>{!post.public ? "Bozza" : "Pubblico"}</p>
+        </div>
+      ))} */}
     </>
   );
 }
