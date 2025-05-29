@@ -1,26 +1,26 @@
 import axios from "axios";
 import { useState } from "react";
 const initialData = { author: "", title: "", body: "", public: false };
-
+const apiUrl = "https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts";
 export default function App() {
   const [formData, setFormData] = useState(initialData);
+  const [cardData, setCardData] = useState();
+
+  const handleFormSubmit = (e) => {
+    axios.post(`${apiUrl}`, formData).then((res) => {
+      const { author, title, body } = res.data;
+      setCardData({ author, title, body });
+      console.log(res.data);
+    });
+    e.preventDefault();
+  };
 
   const handleInputChange = (e) => {
-    /**
-     * se e.target è di tipo "checkbox"
-     * allora value = e.target.checked
-     * altrimenti e.target.value
-     */
     const value =
       e.target.type === "checkbox" ? e.target.checked : e.target.value;
 
     setFormData({ ...formData, [e.target.name]: value });
   };
-
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-  };
-  console.log(formData);
 
   return (
     <>
@@ -69,13 +69,13 @@ export default function App() {
         <button>Crea Post </button>
       </form>
 
-      {formData && (
+      {cardData && (
         <div>
           <div>
             <p>{formData.author}</p>
             <h3>{formData.title}</h3>
             <p>{formData.body}</p>
-            <p>{!formData.public ? "Pubblico" : "Bozza"}</p>
+            <p>{!formData.public ? "Bozza" : "Pubblico"}</p>
           </div>
         </div>
       )}
