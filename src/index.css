@@ -1,68 +1,70 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+img {
+  max-width: 100%;
 }
 
 body {
-  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  color: rgb(82, 81, 97);
+  background-color: rgb(219, 219, 219);
+}
+ul {
+  list-style: none;
+}
+.container {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.container-flex {
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.actor-card {
+  background-color: rgb(240, 240, 240);
+  box-shadow: 1px 1px 10px rgba(128, 128, 128, 0.267);
 }
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+.card-30 {
+  width: 30%;
+  margin-right: 10px;
+  margin-top: 30px;
+  border-radius: 20px;
+  overflow: hidden;
 }
-button:hover {
-  border-color: #646cff;
+.img-card-container {
+  height: 350px;
+  overflow: hidden;
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.img-card {
+  width: 100%;
 }
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.container-info {
+  padding: 16px;
+  padding-bottom: 30px;
+}
+.container-name {
+  border-bottom: 1px solid rgb(196, 196, 196);
+  padding-bottom: 10px;
+}
+.birth {
+  font-style: italic;
+  font-weight: 200;
+  padding-right: 10px;
+}
+.container-bio {
+  padding-top: 10px;
+}
+.awards {
+  margin-top: 8px;
+  padding: 4px;
+  padding-left: 10px;
+  color: rgb(46, 45, 57);
+  background-color: rgb(218, 192, 46);
+  border-radius: 16px;
 }
